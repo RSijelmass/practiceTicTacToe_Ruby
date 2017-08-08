@@ -20,5 +20,8 @@ describe Board do
 		it 'fills in space with O' do 
 			expect(board.fill_in(3, 'O')).to eq ['','','','O','','','','','']
 		end
-end
+		it 'raises an error if another move is filled in' do
+			expect { board.fill_in(0,'R') }.to raise_error 'This move is not allowed!'
+		end
+	end
 end
