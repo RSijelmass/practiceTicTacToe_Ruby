@@ -5,4 +5,9 @@ class Board
 		@spaces = spaces
 	end
 
+	def fill_in(space, move)
+		@spaces[space] = move
+		@spaces
+	end
+
 end
