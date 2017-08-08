@@ -38,5 +38,10 @@ describe Board do
 			board.fill_in(1,'X')
 			expect(board.fill_in(2,'X')).to eq 'Congratulations, X won!'
 		end
+		it 'declares a winner horizontal OOO on first line' do
+			board.fill_in(0,'O')
+			board.fill_in(1,'O')
+			expect(board.fill_in(2,'O')).to eq 'Congratulations, O won!'
+		end
 	end
 end

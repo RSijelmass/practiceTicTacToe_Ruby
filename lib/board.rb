@@ -27,6 +27,6 @@ class Board
 	end
 
 	def check_win(marker)
-		return 'Congratulations, X won!' if @spaces[0..2] == ['X','X','X']
+		return "Congratulations, #{marker} won!" if @spaces[0..2] == [marker, marker, marker]
 	end
 end
