@@ -5,20 +5,20 @@ describe Board do
 
 	describe 'initialise' do
 		it 'initialises by default with an array of empty spaces' do
-			expect(board.spaces).to eq ['','','','','','','','','']
+			expect(board.spaces).to eq [nil,nil,nil,nil,nil,nil,nil,nil,nil]
 		end	
 		it 'can initialise with a different array of spaces' do
-			board2 = Board.new(['','','',''])
-			expect(board2.spaces).to eq ['','','','']
+			board2 = Board.new(4)
+			expect(board2.spaces).to eq [nil,nil,nil,nil]
 		end	
 	end
 
 	describe '#fill_in' do
 		it 'fills in space with X' do 
-			expect(board.fill_in(1, 'X')).to eq ['','X','','','','','','','']
+			expect(board.fill_in(1, 'X')).to eq [nil,'X',nil,nil,nil,nil,nil,nil,nil]
 		end
 		it 'fills in space with O' do 
-			expect(board.fill_in(3, 'O')).to eq ['','','','O','','','','','']
+			expect(board.fill_in(3, 'O')).to eq [nil,nil,nil,'O',nil,nil,nil,nil,nil]
 		end
 		it 'raises an error if another marker is filled in' do
 			expect { board.fill_in(0,'R') }.to raise_error 'This move is not allowed!'
@@ -30,5 +30,13 @@ describe Board do
 	 		board.fill_in(0,'X')
 			expect { board.fill_in(0,'O') }.to raise_error 'This space has already been filled!'		
 	 	end
+	end
+
+	describe 'declares a win' do
+		it 'declares a winner horizontal XXX on first line' do
+			board.fill_in(0,'X')
+			board.fill_in(1,'X')
+			expect(board.fill_in(2,'X')).to eq 'Congratulations, X won!'
+		end
 	end
 end

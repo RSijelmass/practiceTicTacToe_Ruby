@@ -1,14 +1,14 @@
 class Board
 	attr_reader :spaces
 
-	def initialize(spaces = ['','','','','','','','',''])
-		@spaces = spaces
+	def initialize(space_length = 9)
+		@spaces = Array.new(space_length)
 	end
 
 	def fill_in(space, marker)
 		check_move(space, marker)
 		@spaces[space] = marker 
-		@spaces
+		check_win(marker) ? check_win(marker) : @spaces
 	end
 
 	private
@@ -19,10 +19,14 @@ class Board
 	end
 	
 	def is_filled?(space)
-		@spaces[space] != ''
+		@spaces[space] != nil
 	end
 
 	def is_allowed?(space, marker)
 		(marker == 'X' || marker == 'O') && space < @spaces.length
+	end
+
+	def check_win(marker)
+		return 'Congratulations, X won!' if @spaces[0..2] == ['X','X','X']
 	end
 end
