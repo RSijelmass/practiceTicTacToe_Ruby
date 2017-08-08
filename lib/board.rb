@@ -14,6 +14,15 @@ class Board
 	private
 
 	def check_move(space, marker)
-		raise 'This move is not allowed!'	unless (marker == 'X' || marker == 'O') && space < @spaces.length
+		raise 'This move is not allowed!'	unless is_allowed?(space, marker)
+		raise 'This space has already been filled!' if is_filled?(space)
+	end
+	
+	def is_filled?(space)
+		@spaces[space] != ''
+	end
+
+	def is_allowed?(space, marker)
+		(marker == 'X' || marker == 'O') && space < @spaces.length
 	end
 end

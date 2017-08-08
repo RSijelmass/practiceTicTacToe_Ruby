@@ -8,8 +8,8 @@ describe Board do
 			expect(board.spaces).to eq ['','','','','','','','','']
 		end	
 		it 'can initialise with a different array of spaces' do
-			board2 = Board.new(['a','b','c','d','e','f','g','h','i'])
-			expect(board2.spaces).to eq ['a','b','c','d','e','f','g','h','i']
+			board2 = Board.new(['','','',''])
+			expect(board2.spaces).to eq ['','','','']
 		end	
 	end
 
@@ -26,5 +26,9 @@ describe Board do
 		it 'raises an error if filled in space is not on board' do
 			expect { board.fill_in(10,'X') }.to raise_error 'This move is not allowed!'
 		end
+		it 'raises an error if space is already filled in' do	
+	 		board.fill_in(0,'X')
+			expect { board.fill_in(0,'O') }.to raise_error 'This space has already been filled!'		
+	 	end
 	end
 end
