@@ -26,5 +26,5 @@ describe Board do
 		it 'raises an error if filled in space is not on board' do
 			expect { board.fill_in(10,'X') }.to raise_error 'This move is not allowed!'
 		end
-end
+	end
 end
