@@ -39,7 +39,7 @@ class Board
 	end
 
 	def vertical_combinations
-		[[@spaces[0], @spaces[3], @spaces[6]], [@spaces[2], @spaces[4], @spaces[7]]]
+		[[@spaces[0], @spaces[3], @spaces[6]], [@spaces[1], @spaces[4], @spaces[7]], [@spaces[2], @spaces[5], @spaces[8]]]
 	end
 
 

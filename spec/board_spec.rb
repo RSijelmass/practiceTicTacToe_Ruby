@@ -77,23 +77,23 @@ describe Board do
 			expect(board.fill_in(2,'O')).to eq 'Congratulations, O won!'
 		end
 		it 'declares a winner XXX on second line' do
-			board.fill_in(2,'X')
+			board.fill_in(1,'X')
 			board.fill_in(4,'X')
 			expect(board.fill_in(7,'X')).to eq 'Congratulations, X won!'
 		end
 		it 'declares a winner OOO on second line' do
-			board.fill_in(2,'O')
+			board.fill_in(1,'O')
 			board.fill_in(4,'O')
 			expect(board.fill_in(7,'O')).to eq 'Congratulations, O won!'
 		end
-		xit 'declares a winner XXX on third line' do
-			board.fill_in(6,'X')
-			board.fill_in(7,'X')
+		it 'declares a winner XXX on third line' do
+			board.fill_in(2,'X')
+			board.fill_in(5,'X')
 			expect(board.fill_in(8,'X')).to eq 'Congratulations, X won!'
 		end
-		xit 'declares a winner OOO on third line' do
-			board.fill_in(6,'O')
-			board.fill_in(7,'O')
+		it 'declares a winner OOO on third line' do
+			board.fill_in(2,'O')
+			board.fill_in(5,'O')
 			expect(board.fill_in(8,'O')).to eq 'Congratulations, O won!'
 		end
 	end
