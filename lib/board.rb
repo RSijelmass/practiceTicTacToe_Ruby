@@ -27,7 +27,7 @@ class Board
 	end
 
 	def check_win(marker)
-		combinations = horizontal_combinations + vertical_combinations
+		combinations = horizontal_combinations + vertical_combinations + diagonal_combinations
 		combinations.each do |combination|
 			return "Congratulations, #{marker} won!" if combination == [marker, marker, marker]
 		end
@@ -42,5 +42,8 @@ class Board
 		[[@spaces[0], @spaces[3], @spaces[6]], [@spaces[1], @spaces[4], @spaces[7]], [@spaces[2], @spaces[5], @spaces[8]]]
 	end
 
+	def diagonal_combinations
+		[[@spaces[0], @spaces[5], @spaces[8]]]
+	end
 
 end

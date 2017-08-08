@@ -97,4 +97,18 @@ describe Board do
 			expect(board.fill_in(8,'O')).to eq 'Congratulations, O won!'
 		end
 	end
+	
+	describe 'declares a diagonal win' do
+		it 'declares a winner XXX from top-left to bottom-right' do
+			board.fill_in(0,'X')
+			board.fill_in(5,'X')
+			expect(board.fill_in(8,'X')).to eq 'Congratulations, X won!'
+		end
+		it 'declares a winner OOO from top-left to bottom-right' do
+			board.fill_in(0,'O')
+			board.fill_in(5,'O')
+			expect(board.fill_in(8,'O')).to eq 'Congratulations, O won!'
+		end
+end
+
 end
