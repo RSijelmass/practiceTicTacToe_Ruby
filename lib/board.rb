@@ -43,7 +43,7 @@ class Board
 	end
 
 	def diagonal_combinations
-		[[@spaces[0], @spaces[5], @spaces[8]]]
+		[[@spaces[0], @spaces[5], @spaces[8]], [@spaces[2], @spaces[5], @spaces[6]]]
 	end
 
 end

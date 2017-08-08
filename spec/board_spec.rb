@@ -109,6 +109,16 @@ describe Board do
 			board.fill_in(5,'O')
 			expect(board.fill_in(8,'O')).to eq 'Congratulations, O won!'
 		end
-end
+		it 'declares a winner XXX from top-right to bottom-left' do
+			board.fill_in(2,'X')
+			board.fill_in(5,'X')
+			expect(board.fill_in(6,'X')).to eq 'Congratulations, X won!'
+		end
+		it 'declares a winner OOO from top-right to bottom-left' do
+			board.fill_in(2,'O')
+			board.fill_in(5,'O')
+			expect(board.fill_in(6,'O')).to eq 'Congratulations, O won!'
+		end
+	end
 
 end
