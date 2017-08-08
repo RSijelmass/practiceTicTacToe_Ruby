@@ -5,15 +5,15 @@ class Board
 		@spaces = spaces
 	end
 
-	def fill_in(space, move)
-		check_move(move)
-		@spaces[space] = move
+	def fill_in(space, marker)
+		check_move(space, marker)
+		@spaces[space] = marker 
 		@spaces
 	end
 
 	private
 
-	def check_move(move)
-		raise 'This move is not allowed!' unless move == 'X' || move == 'O'
+	def check_move(space, marker)
+		raise 'This move is not allowed!'	unless (marker == 'X' || marker == 'O') && space <= @spaces.length
 	end
 end
