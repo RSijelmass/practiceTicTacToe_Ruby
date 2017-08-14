@@ -15,10 +15,12 @@ describe Board do
 
 	describe '#fill_in' do
 		it 'fills in space with X' do 
-			expect(board.fill_in(1, 'X')).to eq [nil,'X',nil,nil,nil,nil,nil,nil,nil]
+			board.fill_in(1, 'X')
+			expect(board.spaces).to eq [nil,'X',nil,nil,nil,nil,nil,nil,nil]
 		end
 		it 'fills in space with O' do 
-			expect(board.fill_in(3, 'O')).to eq [nil,nil,nil,'O',nil,nil,nil,nil,nil]
+			board.fill_in(3, 'O')
+			expect(board.spaces).to eq [nil,nil,nil,'O',nil,nil,nil,nil,nil]
 		end
 		it 'raises an error if another marker is filled in' do
 			expect { board.fill_in(0,'R') }.to raise_error 'This move is not allowed!'
@@ -121,4 +123,12 @@ describe Board do
 		end
 	end
 
+	describe 'declares a tie' do
+		it 'prints out a tie if the board is full' do
+			for i in 0..7
+				board.fill_in(i,'O')
+			end
+			expect(board.fill_in(8,'O')).to eq 'It\'s a tie!'
+		end
+	end
 end
